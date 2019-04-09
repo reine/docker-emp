@@ -35,6 +35,6 @@ docker-emp
 
 Access the site via http://localhost/ and you should see the default page with the PHP version displayed at the bottom.
 
-![Main Page](https://github.com/reine/docker-emp/tree/master/conf/screenshot.png "Main Page")
+![Main Page](/conf/screenshot.png "Main Page")
 
 **Work in progress.**
