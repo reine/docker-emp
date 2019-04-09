@@ -1,0 +1,16 @@
+#---------- Essential Ignored Files ----------#
+*~
+*.swp
+*.swo
+._*
+.DS_Store
+.Trashes
+.Trash-*
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+#-------------------- End --------------------#
