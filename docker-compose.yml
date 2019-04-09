@@ -7,7 +7,7 @@ services:
     restart: always
     working_dir: /var/lib/mysql
     volumes:
-      - ./data/mariadb:/var/lib/mysql
+      - ./data/db:/var/lib/mysql
     env_file:
       - ./conf/mariadb/db.env
     ports:
