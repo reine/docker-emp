@@ -8,10 +8,6 @@ services:
     working_dir: /var/lib/mysql
     volumes:
       - ./data/mariadb:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     env_file:
       - ./conf/mariadb/db.env
     ports:
@@ -28,7 +24,7 @@ services:
       - "8081:80"
 
   php-fpm:
-    image: phpdocker/php-fpm
+    build: conf/php-fpm
     container_name: emp-php
     working_dir: /var/www/html
     volumes:
