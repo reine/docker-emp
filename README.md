@@ -16,6 +16,30 @@ This docker base is currently composed of:
   - PHP 7.3.x
   - Composer
 
+### PHP Extensions
+
+Included in the base image are these extensions:
+
+  - APC
+  - cURL
+  - JSON
+  - MCrypt (sodium in PHP>=7.1)
+  - MBString
+  - OPCache
+  - Readline
+  - XML
+  - Zip
+
+And, these are the installed additions:
+
+  - GD
+  - IMAP
+  - ImageMagick
+  - Intl
+  - MySQL
+
+If you need a specific extension enabled, modify **conf/php-fpm/Dockerfile**
+
 ## Initial Setup
 
 Clone this repository to use as your docker base for PHP-enabled sites. Launch docker and create a network:
