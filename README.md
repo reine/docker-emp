@@ -1,10 +1,20 @@
-# Docker Base for NginX, MariaDB and PHP-FPM
+# Docker Base for Nginx, MariaDB and PHP-FPM with Composer
 
 ## Table of Contents
 
+  - [Features](#features)
   - [Initial Setup](#initial-setup)
   - [Persisting Data](#persisting-data)
   - [Local Access](#local-access)
+
+## Features
+
+This docker base is currently composed of:
+
+  - nginx
+  - MariaDB 10.4.x
+  - PHP 7.3.x
+  - Composer
 
 ## Initial Setup
 

@@ -20,6 +20,7 @@ services:
     volumes:
       - ./data/apps:/var/www/html
       - ./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./data/logs:/var/log/nginx
     ports:
       - "80:80"
 
@@ -30,6 +31,13 @@ services:
     volumes:
       - ./data/apps:/var/www/html
       - ./conf/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+  
+  composer:
+    build: conf/composer
+    container_name: emp-composer
+    working_dir: /var/www/html
+    volumes:
+      - ./data/apps:/var/www/html
 
 networks:
   default:
