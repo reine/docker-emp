@@ -1,5 +1,11 @@
 # Docker Base for NginX, MariaDB and PHP-FPM
 
+## Table of Contents
+
+  - [Initial Setup](#initial-setup)
+  - [Persisting Data](#persisting-data)
+  - [Local Access](#local-access)
+
 ## Initial Setup
 
 Clone this repository to use as your docker base for PHP-enabled sites. Launch docker and create a network:
@@ -28,7 +34,7 @@ docker-emp
 |- data
 |   |- apps
 |   \- db
-|-docker-compose.yml
+\-docker-compose.yml
 ```
 
 ## Local Access
@@ -36,5 +42,22 @@ docker-emp
 Access the site via http://localhost/ and you should see the default page with the PHP version displayed at the bottom.
 
 ![Main Page](/conf/screenshot.png "Main Page")
+
+To access the database, use an SQL client and enter the following info:
+
+```
+Hostname: 127.0.0.1
+Port: 8081
+Username: root
+Password: root123!
+```
+
+If you changed the default values in the **db.env** file, use those values instead.
+
+Do not use the default SQL port (3306) - it will not work when accessing the database container. Use the assigned port in the **docker-compose.yml** file. The port number can be changed as long as you know what you are doing but for the purpose of this docker base, let's keep it as it is.
+
+For security reasons, it is advisable to use SSH tunneling to access the database server for production use.
+
+---
 
 **Work in progress.**
