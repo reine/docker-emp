@@ -33,7 +33,8 @@ docker-emp
 |- conf
 |- data
 |   |- apps
-|   \- db
+|   |- db
+|   \- logs
 \-docker-compose.yml
 ```
 
@@ -47,7 +48,7 @@ To access the database, use an SQL client and enter the following info:
 
 ```
 Hostname: 127.0.0.1
-Port: 8081
+Port: 8890
 Username: root
 Password: root123!
 ```
