@@ -7,6 +7,7 @@
   - [Persisting Data](#persisting-data)
   - [Local Access](#local-access)
   - [Composer](#composer)
+  - [Nginx Server Blocks](#nginx-server-blocks)
 
 ## Features
 
@@ -77,6 +78,10 @@ docker-emp
 
 Access the site via http://localhost/ and you should see the default page with the PHP version displayed at the bottom.
 
+For most users, `localhost` will suffice. But developers who want to simulate use of domains even on a local environment would prefer to use localdomains like `local` or `test`.
+
+Alternatively, you can access the site using http://myapps.local or http://www.myapps.local as server aliasing is acceptable so you can do subdomains.
+
 ![Main Page](/conf/screenshot.png "Main Page")
 
 To access the database, use an SQL client and enter the following info:
@@ -128,6 +133,14 @@ docker-emp
 |   \- logs
 \-docker-compose.yml
 ```
+
+## Nginx Server Blocks
+
+Server blocks, aka "virtual hosts", allows a single web server setup to host multiple domains.
+
+In our example above, we can separate the new app from the main app by giving it its own domain. Check out `conf/nginx/default.conf` to see how  `account.api.local` was added to the default Nginx configuration.
+
+This is a simplified solution to allow virtual hosting out-of-the-box using `docker-compose`. If you want a more robust solution, make sure you learn more about Docker and Nginx.
 
 ---
 
