@@ -80,7 +80,7 @@ Access the site via http://localhost/ and you should see the default page with t
 
 For most users, `localhost` will suffice. But developers who want to simulate use of domains even on a local environment would prefer to use localdomains like `local` or `test`.
 
-Alternatively, you can access the site using http://myapps.local or http://www.myapps.local as server aliasing is acceptable so you can do subdomains.
+Alternatively, you can access the site using http://myapps.local. Or, via http://www.myapps.local as server aliasing is acceptable so you can do subdomains.
 
 ![Main Page](/conf/screenshot.png "Main Page")
 
