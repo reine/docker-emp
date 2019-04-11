@@ -16,3 +16,4 @@ Thumbs.db
 #-------------------- End --------------------#
 data/db/*
 data/logs/*
+data/apps/*/
