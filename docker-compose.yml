@@ -1,8 +1,8 @@
 version: "3.1"
 services:
 
-  autodiscovery:
-    build: conf/autodiscovery
+  consul:
+    build: conf/consul
     container_name: emp-autodiscovery
     working_dir: /consul
     volumes:
@@ -33,7 +33,7 @@ services:
     env_file:
       - ./conf/mariadb/db.env
     environment:
-      - CONSUL=autodiscovery
+      - CONSUL=consul
     ports:
       - "8890:3306"
   
@@ -46,7 +46,7 @@ services:
       - ./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./data/logs:/var/log/nginx
     environment:
-      - CONSUL=autodiscovery
+      - CONSUL=consul
     ports:
       - "80:80"
 

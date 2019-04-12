@@ -1,4 +1,4 @@
-# Docker Base for Nginx, MariaDB and PHP-FPM with Composer
+# Docker Base for PHP Microservices
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@
   - [Local Access](#local-access)
   - [Composer](#composer)
   - [Nginx Server Blocks](#nginx-server-blocks)
+  - [Service Discovery](#service-discovery)
 
 ## Features
 
@@ -17,6 +18,7 @@ This docker base is currently composed of:
   - MariaDB 10.4.x
   - PHP 7.3.x
   - Composer
+  - Consul 1.4.x
 
 ### PHP Extensions
 
@@ -69,6 +71,7 @@ docker-emp
 |- conf
 |- data
 |   |- apps
+|   |- autodiscovery
 |   |- db
 |   \- logs
 \-docker-compose.yml
@@ -134,6 +137,23 @@ docker-emp
 \-docker-compose.yml
 ```
 
+To use Composer in different apps, stop its container and edit `docker-compose.yml` with the correct persistent data path then restart it.
+
+For example:
+- To use inside /data/apps:
+
+```
+volumes:
+      - ./data/apps:/var/www/html
+```
+
+- To use inside /data/apps/account-api:
+
+```
+volumes:
+      - ./data/apps/account-api:/var/www/html
+```
+
 ## Nginx Server Blocks
 
 Server blocks, aka "virtual hosts", allows a single web server setup to host multiple domains.
@@ -141,6 +161,12 @@ Server blocks, aka "virtual hosts", allows a single web server setup to host mul
 In our example above, we can separate the new app from the main app by giving it its own domain. Check out `conf/nginx/default.conf` to see how  `account.api.local` was added to the default Nginx configuration.
 
 This is a simplified solution to allow virtual hosting out-of-the-box using `docker-compose`. If you want a more robust solution, make sure you learn more about Docker and Nginx.
+
+## Service Discovery
+
+Microservice development will benefit from service discovery, specially one with health checking feature like [Consul](https://www.consul.io). It can be accessed via http://localhost:8500
+
+![Consul](/conf/screenshot-consul.png "Consul")
 
 ---
 
