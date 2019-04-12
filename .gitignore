@@ -17,3 +17,4 @@ Thumbs.db
 data/db/*
 data/logs/*
 data/apps/*/
+data/autodiscovery/*
